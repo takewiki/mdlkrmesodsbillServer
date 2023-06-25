@@ -15,7 +15,7 @@ viewrditemserver <- function(input,output,session,dms_token) {
 
   
   shiny::observe({
-    shiny::observeEvent(input$btn_view_rditem,
+    shiny::observeEvent(input$btn_hrv_src_view_rditem,
                         {
                             sql = 'select * from rds_hrv_src_md_rditem'
                             
@@ -25,7 +25,7 @@ viewrditemserver <- function(input,output,session,dms_token) {
                                             '系统项目名称'
                             )
                             #显示数据
-                            tsui::run_dataTable2(id = 'view_data_rditem', data = data)
+                            tsui::run_dataTable2(id = 'hrv_src_view_data_rditem', data = data)
                             
                             
                  

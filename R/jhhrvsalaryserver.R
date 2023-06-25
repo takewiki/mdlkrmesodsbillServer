@@ -15,7 +15,7 @@ viewsalaryserver <- function(input,output,session,dms_token) {
 
   
   shiny::observe({
-    shiny::observeEvent(input$btn_view_salary,
+    shiny::observeEvent(input$btn_hrv_src_view_salary,
                         {
                             sql = 'select * from rds_hrv_src_ds_salary'
                             
@@ -45,7 +45,7 @@ viewsalaryserver <- function(input,output,session,dms_token) {
                                             
                             )
                             #显示数据
-                            tsui::run_dataTable2(id = 'view_data_salary', data = data)
+                            tsui::run_dataTable2(id = 'hrv_src_view_data_salary', data = data)
                             
                             
                  

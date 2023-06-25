@@ -15,7 +15,7 @@ viewtplvoucherserver <- function(input,output,session,dms_token) {
 
   
   shiny::observe({
-    shiny::observeEvent(input$btn_view_tplvoucher,
+    shiny::observeEvent(input$btn_hrv_src_view_tplvoucher,
                         {
                             sql = 'select * from rds_hrv_src_tpl_voucher'
                             
@@ -40,7 +40,7 @@ viewtplvoucherserver <- function(input,output,session,dms_token) {
                                             '贷方金额买点sql'
                                             )
                             #显示数据
-                            tsui::run_dataTable2(id = 'view_data_tplvoucher', data = data)
+                            tsui::run_dataTable2(id = 'hrv_src_view_data_tplvoucher', data = data)
                             
                             
                  

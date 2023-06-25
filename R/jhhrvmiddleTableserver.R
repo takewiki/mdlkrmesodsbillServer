@@ -15,7 +15,7 @@ viewmiddleTableserver <- function(input,output,session,dms_token) {
 
   
   shiny::observe({
-    shiny::observeEvent(input$btn_view_middleTable,
+    shiny::observeEvent(input$btn_hrv_src_view_middleTable,
                         {
                             sql = 'select * from rds_hrv_src_ds_middleTable'
                             
@@ -60,7 +60,7 @@ viewmiddleTableserver <- function(input,output,session,dms_token) {
                               'std新行号'
                             )
                             #显示数据
-                            tsui::run_dataTable2(id = 'view_data_middleTable', data = data)
+                            tsui::run_dataTable2(id = 'hrv_src_view_data_middleTable', data = data)
                             
                             
                  

@@ -15,7 +15,7 @@ viewnonrddetailserver <- function(input,output,session,dms_token) {
 
   
   shiny::observe({
-    shiny::observeEvent(input$btn_view_nonrddetail,
+    shiny::observeEvent(input$btn_hrv_src_view_nonrddetail,
                         {
                             sql = 'select * from rds_hrv_src_ds_nonrddetail'
                             
@@ -34,7 +34,7 @@ viewnonrddetailserver <- function(input,output,session,dms_token) {
                                             '项目名称'
                                             )
                             #显示数据
-                            tsui::run_dataTable2(id = 'view_data_nonrddetail', data = data)
+                            tsui::run_dataTable2(id = 'hrv_src_view_data_nonrddetail', data = data)
                             
                             
                  

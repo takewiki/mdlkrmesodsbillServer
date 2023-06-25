@@ -15,7 +15,7 @@ viewdetailserver <- function(input,output,session,dms_token) {
 
   
   shiny::observe({
-    shiny::observeEvent(input$btn_view_detail,
+    shiny::observeEvent(input$btn_hrv_src_view_detail,
                         {
                             sql = 'select * from rds_hrv_src_ds_detail'
                             
@@ -52,7 +52,7 @@ viewdetailserver <- function(input,output,session,dms_token) {
                                             '单据编号'
                             )
                             #显示数据
-                            tsui::run_dataTable2(id = 'view_data_detail', data = data)
+                            tsui::run_dataTable2(id = 'hrv_src_view_data_detail', data = data)
                             
                             
                  
