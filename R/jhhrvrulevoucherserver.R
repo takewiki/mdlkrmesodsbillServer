@@ -20,6 +20,13 @@ viewrulevoucherserver <- function(input,output,session,dms_token) {
                             sql = 'select * from rds_hrv_src_rule_voucher'
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
+                            names(data) = c('凭证模板序号',
+                                            '凭证模板名称',
+                                            '费用承担组织',
+                                            '个税申报组织',
+                                            '银行',
+                                            '业务类型'
+                            )
                             #显示数据
                             tsui::run_dataTable2(id = 'view_data_rulevoucher', data = data)
                             

@@ -20,6 +20,22 @@ viewrddetailserver <- function(input,output,session,dms_token) {
                             sql = 'select * from rds_hrv_src_ds_rddetail'
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
+                            names(data) = c(
+                              c('序号',
+                                '工资类别',
+                                '会计年度',
+                                '会计期间',
+                                '原部门',
+                                '高新部门',
+                                '姓名',
+                                '费用承担组织',
+                                '个税申报组织',
+                                '单据编号',
+                                '项目名称',
+                                '研发工资成本'
+                                
+                              )
+                            )
                             #显示数据
                             tsui::run_dataTable2(id = 'view_data_rddetail', data = data)
                             

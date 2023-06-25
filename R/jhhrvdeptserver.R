@@ -20,6 +20,13 @@ viewdeptserver <- function(input,output,session,dms_token) {
                             sql = 'select * from rds_hrv_src_md_dept'
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
+                            names(data) = c('高新部门_人工费用计提表',
+                                            '编码',
+                                            '名称',
+                                            '部门全称',
+                                            '使用组织',
+                                            '备注'
+                            )
                             #显示数据
                             tsui::run_dataTable2(id = 'view_data_dept', data = data)
                             

@@ -20,6 +20,10 @@ viewrditemserver <- function(input,output,session,dms_token) {
                             sql = 'select * from rds_hrv_src_md_rditem'
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
+                            names(data) = c('组织',
+                                            'RD-项目（人工费用表格）',
+                                            '系统项目名称'
+                            )
                             #显示数据
                             tsui::run_dataTable2(id = 'view_data_rditem', data = data)
                             

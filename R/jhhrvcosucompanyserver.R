@@ -20,6 +20,9 @@ viewcosucompanyserver <- function(input,output,session,dms_token) {
                             sql = 'select * from rds_hrv_src_md_cosucompany'
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
+                            names(data) = c('项目',
+                                            '编码',
+                                            '名称') 
                             #显示数据
                             tsui::run_dataTable2(id = 'view_data_cosucompany', data = data)
                             

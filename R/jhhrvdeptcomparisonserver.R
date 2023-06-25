@@ -20,6 +20,7 @@ viewdeptcomparisonserver <- function(input,output,session,dms_token) {
                             sql = 'select * from rds_hrv_src_md_deptcomparison'
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
+                            names(data) = c('高新部门', '原部门')
                             #显示数据
                             tsui::run_dataTable2(id = 'view_data_deptcomparison', data = data)
                             
