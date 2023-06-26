@@ -53,8 +53,8 @@ viewmiddleTableserver <- function(input,output,session,dms_token) {
                               '贷方金额',
                               '结算方式',
                               '结算号 ',
-                              # '详细信息',
-                              # '状态',
+                              '详细信息',
+                              '状态',
                               '责任中心名称',
                               '重分类名称',
                               'std新行号'
