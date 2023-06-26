@@ -53,11 +53,11 @@ viewmiddleTableserver <- function(input,output,session,dms_token) {
                               '贷方金额',
                               '结算方式',
                               '结算号 ',
-                              '详细信息',
-                              '状态',
                               '责任中心名称',
                               '重分类名称',
-                              'std新行号'
+                              'std新行号',
+                              '状态',
+                              '详细信息'
                             )
                             #显示数据
                             tsui::run_dataTable2(id = 'hrv_src_view_data_middleTable', data = data)
