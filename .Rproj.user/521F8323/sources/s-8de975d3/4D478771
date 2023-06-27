@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1687861224449.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "4D478771",
+    "lastKnownWriteTime" : 1687864559,
+    "last_content_update" : 1687864559,
+    "path" : "~/app/zzy/krmessqlquery/krmesods/mdlkrmesodsServer/R/krmesmaterial.R",
+    "project_path" : "R/krmesmaterial.R",
+    "properties" : {
+        "cursorPosition" : "92,50",
+        "scrollLine" : "67"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
