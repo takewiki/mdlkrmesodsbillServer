@@ -11,11 +11,11 @@
 #' @export
 #'
 #' @examples viewmiddleTableserver()  
-krmesprocessreportodsserver <- function(input,output,session,dms_token) {
+krmesprocessreportodsbillserver <- function(input,output,session,dms_token) {
 
   
   shiny::observe({
-    shiny::observeEvent(input$btn_krmesprocessreportods_view,
+    shiny::observeEvent(input$btn_krmesprocessreportodsbill_view,
                         {
                             sql = 'select * from rds_kr_mes_ods_processreport'
                             
@@ -127,7 +127,7 @@ krmesprocessreportodsserver <- function(input,output,session,dms_token) {
                               
                             )
                             #显示数据
-                            tsui::run_dataTable2(id = 'krmesprocessreportods_view_data', data = data)
+                            tsui::run_dataTable2(id = 'krmesprocessreportodsbill_view_data', data = data)
                             
                             
                  
@@ -150,8 +150,8 @@ krmesprocessreportodsserver <- function(input,output,session,dms_token) {
 #' @export
 #'
 #' @examples HrvServer()
-krmesprocessreportodsServer <- function(input,output,session,dms_token) {
+krmesprocessreportodsbillServer <- function(input,output,session,dms_token) {
   #预览数据
-  krmesprocessreportodsserver(input,output,session,dms_token)
+  krmesprocessreportodsbillserver(input,output,session,dms_token)
 
 }
