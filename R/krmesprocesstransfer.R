@@ -13,11 +13,17 @@
 #' @examples viewsalaryserver()  
 krmesprocesstransferodsbillserver <- function(input,output,session,dms_token) {
 
-  
-  shiny::observe({
+  var_krmesprocesstransferodsbill =tsui::var_dateRange('dr_krmesprocesstransferodsbill')
+
     shiny::observeEvent(input$btn_krmesprocesstransferodsbill_view,
                         {
-                            sql = 'select * from rds_kr_mes_ods_processtransfer'
+                          
+                          dates = var_krmesprocesstransferodsbill()
+                          start = as.character(dates[1])
+                          end = as.character(dates[2])
+                            sql = paste0("select * from rds_kr_mes_ods_processtransfer
+                                         where  FBILLDATE >='",start,"' and  FBILLDATE <='",end,"'
+                                         ")
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
                             names(data) = c('单据编号',
@@ -130,10 +136,12 @@ krmesprocesstransferodsbillserver <- function(input,output,session,dms_token) {
                             #显示数据
                             tsui::run_dataTable2(id = 'krmesprocesstransferodsbill_view_data', data = data)
                             
+                            tsui::run_download_xlsx(id = 'dl_krmesprocesstransferodsbill',data = data,filename = '工序转移下载.xlsx')
+                            
                             
                  
                           
-                        })
+           
     
   })
 }

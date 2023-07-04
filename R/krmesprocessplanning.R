@@ -13,11 +13,16 @@
 #' @examples viewfnoteserver()  
 krmesprocessplanningodsbillserver <- function(input,output,session,dms_token) {
 
-  
-  shiny::observe({
+  var_dr_krmesprocessplanningodsbill =tsui::var_dateRange('dr_krmesprocessplanningodsbill')
+
     shiny::observeEvent(input$btn_krmesprocessplanningodsbill_view,
                         {
-                            sql = 'select * from rds_kr_mes_ods_processplanning'
+                          
+                          dates = var_dr_krmesprocessplanningodsbill()
+                          start = as.character(dates[1])
+                          end = as.character(dates[2])
+                            sql = paste0("select * from rds_kr_mes_ods_processplanning
+                             where  FPLANSTARTTIME >='",start,"' and  FPLANSTARTTIME <='",end,"'")
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
                             names(data) = c('生产组织',
@@ -129,11 +134,12 @@ krmesprocessplanningodsbillserver <- function(input,output,session,dms_token) {
                             )
                             #显示数据
                             tsui::run_dataTable2(id = 'krmesprocessplanningodsbill_view_data', data = data)
+                            tsui::run_download_xlsx(id = 'dl_krmesprocessplanningodsbill',data = data,filename = '工序计划下载.xlsx')
                             
                             
                  
                           
-                        })
+                  
     
   })
 }

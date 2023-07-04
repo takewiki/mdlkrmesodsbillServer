@@ -14,10 +14,15 @@
 krmesproductionwarehousinodsbillserver <- function(input,output,session,dms_token) {
 
   
-  shiny::observe({
+  var_dr_krmesproductionwarehousinodsbill =tsui::var_dateRange('dr_krmesproductionwarehousinodsbill')
     shiny::observeEvent(input$btn_krmesproductionwarehousinodsbill_view,
                         {
-                            sql = 'select * from rds_kr_mes_ods_productionwarehousing'
+                          
+                          dates = var_dr_krmesproductionwarehousinodsbill()
+                          start = as.character(dates[1])
+                          end = as.character(dates[2])
+                            sql = paste0("select * from rds_kr_mes_ods_productionwarehousing
+                                          where  FDate >='",start,"' and  FDate <='",end,"'")
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
                             names(data) = c('单据编号',
@@ -83,10 +88,12 @@ krmesproductionwarehousinodsbillserver <- function(input,output,session,dms_toke
                             #显示数据
                             tsui::run_dataTable2(id = 'krmesproductionwarehousinodsbill_view_data', data = data)
                             
+                            tsui::run_download_xlsx(id = 'dl_krmesproductionwarehousinodsbill',data = data,filename = '生产入库下载.xlsx')
+                            
                             
                  
                           
-                        })
+                    
     
   })
 }

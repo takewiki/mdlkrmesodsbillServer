@@ -14,11 +14,15 @@
 krmesproductionreturnodsbillserver <- function(input,output,session,dms_token) {
 
   
-  shiny::observe({
+  var_dr_krmesproductionreturnodsbill =tsui::var_dateRange('dr_krmesproductionreturnodsbill')
     shiny::observeEvent(input$btn_krmesproductionreturnodsbill_view,
                         {
-                            sql = 'select * from rds_kr_mes_ods_productionreturn'
-                            
+                          
+                          dates = var_dr_krmesproductionreturnodsbill()
+                          start = as.character(dates[1])
+                          end = as.character(dates[2])
+                            sql = paste0("select * from rds_kr_mes_ods_productionreturn
+                                       where  FDate >='",start,"' and  FDate <='",end,"'")
                             data = tsda::sql_select2(token = dms_token, sql = sql)
                             names(data) = c('单据编号',
                                             '产品编码',
@@ -87,10 +91,12 @@ krmesproductionreturnodsbillserver <- function(input,output,session,dms_token) {
                             #显示数据
                             tsui::run_dataTable2(id = 'krmesproductionreturnodsbill_view_data', data = data)
                             
+                            tsui::run_download_xlsx(id = 'dl_krmesproductionreturnodsbill',data = data,filename = '生产退料下载.xlsx')
+                            
                             
                  
                           
-                        })
+                      
     
   })
 }

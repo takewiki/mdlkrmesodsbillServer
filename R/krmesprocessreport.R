@@ -13,11 +13,16 @@
 #' @examples viewmiddleTableserver()  
 krmesprocessreportodsbillserver <- function(input,output,session,dms_token) {
 
-  
-  shiny::observe({
+    var_dr_krmesprocessreportodsbill =tsui::var_dateRange('dr_krmesprocessreportodsbill')
+
     shiny::observeEvent(input$btn_krmesprocessreportodsbill_view,
                         {
-                            sql = 'select * from rds_kr_mes_ods_processreport'
+                          
+                          dates = var_dr_krmesprocessreportodsbill()
+                          start = as.character(dates[1])
+                          end = as.character(dates[2])
+                            sql = paste0("select * from rds_kr_mes_ods_processreport 
+                                         where  FDate >='",start,"' and  FDate <='",end,"'")
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
                             names(data) = c(
@@ -128,12 +133,11 @@ krmesprocessreportodsbillserver <- function(input,output,session,dms_token) {
                             )
                             #显示数据
                             tsui::run_dataTable2(id = 'krmesprocessreportodsbill_view_data', data = data)
-                            
+                            tsui::run_download_xlsx(id = 'dl_krmesprocessreportodsbill',data = data,filename = '工序汇报下载.xlsx')
                             
                  
                           
-                        })
-    
+                
   })
 }
 
