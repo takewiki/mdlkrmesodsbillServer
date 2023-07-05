@@ -21,7 +21,7 @@ krmesproductionwarehousinodsbillserver <- function(input,output,session,dms_toke
                           dates = var_dr_krmesproductionwarehousinodsbill()
                           start = as.character(dates[1])
                           end = as.character(dates[2])
-                            sql = paste0("select * from rds_kr_mes_ods_productionwarehousing
+                            sql = paste0("select * from rds_kr_mes_vw_productionwarehousing
                                           where  FDate >='",start,"' and  FDate <='",end,"'")
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)

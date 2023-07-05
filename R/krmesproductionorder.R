@@ -21,7 +21,7 @@ krmesproductionorderodsbillserver <- function(input,output,session,dms_token) {
                           dates = var_dr_krmesproductionorderodsbill()
                           start = as.character(dates[1])
                           end = as.character(dates[2])
-                            sql = paste0("select * from rds_kr_mes_ods_productionorder
+                            sql = paste0("select * from rds_kr_mes_vw_productionorder
                                          where  FDate >='",start,"' and  FDate <='",end,"'")
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
@@ -44,7 +44,7 @@ krmesproductionorderodsbillserver <- function(input,output,session,dms_token) {
                                             '作废状态',
                                             '产品类型',
                                             '物料编码',
-                                            '不合格品入库选单数量',
+                                            '物料名称',
                                             '生产车间',
                                             '单位',
                                             '数量',

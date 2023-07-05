@@ -22,14 +22,14 @@ krmesproductionfeedodsbillserver <- function(input,output,session,dms_token) {
                           start = as.character(dates[1])
                           end = as.character(dates[2])
                           
-                            sql = paste0("select * from rds_kr_mes_ods_productionfeed
+                            sql = paste0("select * from rds_kr_mes_vw_productionfeed
                                          where  FDate >='",start,"' and  FDate <='",end,"'"  )
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
                             names(data) = 
                               c('单据编号',
                                 '产品编码',
-                                '领料人',
+                                '产品名称',
                                 '单据类型',
                                 '仓管员',
                                 '日期',

@@ -21,7 +21,7 @@ krmesprocesstransferodsbillserver <- function(input,output,session,dms_token) {
                           dates = var_krmesprocesstransferodsbill()
                           start = as.character(dates[1])
                           end = as.character(dates[2])
-                            sql = paste0("select * from rds_kr_mes_ods_processtransfer
+                            sql = paste0("select * from rds_kr_mes_vw_processtransfer
                                          where  FBILLDATE >='",start,"' and  FBILLDATE <='",end,"'
                                          ")
                             

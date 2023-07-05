@@ -21,7 +21,7 @@ krmesprocessreportodsbillserver <- function(input,output,session,dms_token) {
                           dates = var_dr_krmesprocessreportodsbill()
                           start = as.character(dates[1])
                           end = as.character(dates[2])
-                            sql = paste0("select * from rds_kr_mes_ods_processreport 
+                            sql = paste0("select * from rds_kr_mes_vw_processreport 
                                          where  FDate >='",start,"' and  FDate <='",end,"'")
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)

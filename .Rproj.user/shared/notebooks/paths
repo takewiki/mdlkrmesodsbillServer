@@ -1,3 +1,4 @@
+/home/hulilei/pkgs2023/mdlkrmesodsbillServer/DESCRIPTION="7EC6F268"
 /home/hulilei/pkgs2023/mdlkrmesodsbillServer/R/krmesprocessplanning.R="F35D698"
 /home/hulilei/pkgs2023/mdlkrmesodsbillServer/R/krmesprocessreport.R="23FE7280"
 /home/hulilei/pkgs2023/mdlkrmesodsbillServer/R/krmesprocesstransfer.R="2D1AB4EA"
@@ -6,3 +7,5 @@
 /home/hulilei/pkgs2023/mdlkrmesodsbillServer/R/krmesproductionrequisition.R="6F8525E7"
 /home/hulilei/pkgs2023/mdlkrmesodsbillServer/R/krmesproductionreturn.R="15A5174E"
 /home/hulilei/pkgs2023/mdlkrmesodsbillServer/R/krmesproductionwarehousin.R="DD386A1B"
+/home/hulilei/pkgs2023/mdlkrmesodsbillServer/data-raw/DATASET.R="9AC4D2FA"
+/home/hulilei/pkgs2023/mdlkrmesodsbillServer/data-raw/data2.R="572E0F9C"

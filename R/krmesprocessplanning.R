@@ -21,7 +21,7 @@ krmesprocessplanningodsbillserver <- function(input,output,session,dms_token) {
                           dates = var_dr_krmesprocessplanningodsbill()
                           start = as.character(dates[1])
                           end = as.character(dates[2])
-                            sql = paste0("select * from rds_kr_mes_ods_processplanning
+                            sql = paste0("select * from rds_kr_mes_vw_processplanning
                              where  FPLANSTARTTIME >='",start,"' and  FPLANSTARTTIME <='",end,"'")
                             
                             data = tsda::sql_select2(token = dms_token, sql = sql)
@@ -31,8 +31,8 @@ krmesprocessplanningodsbillserver <- function(input,output,session,dms_token) {
                                             '生产订单行号',
                                             '单据状态',
                                             '产品编码',
-                                            'BOM版本',
-                                            '辅助属性',
+                                            '产品名称',
+                                            '规格型号',
                                             '计划开工时间',
                                             '计划完工时间',
                                             '单位',
